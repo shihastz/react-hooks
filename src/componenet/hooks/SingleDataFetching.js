@@ -7,10 +7,10 @@ function SingleDataFetching() {
   const [idFromButton, setIdFromButton] = useState(1);
 
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const buttonClick = () => {
-    setLoading(true)
+    setLoading(true);
     setIdFromButton(id);
   };
   useEffect(() => {
@@ -18,15 +18,15 @@ function SingleDataFetching() {
       .get(`https://jsonplaceholder.typicode.com/posts/${idFromButton}`)
       .then((res) => {
         console.log(res);
-        setLoading(false)
+        setLoading(false);
         setPost(res.data);
-        setError('')
+        setError("");
       })
       .catch((err) => {
         console.log(err);
-        setLoading(false)
+        setLoading(false);
         setPost({});
-        setError('Something Went Wrong !')
+        setError("Something Went Wrong !");
       });
   }, [idFromButton]);
   return (
